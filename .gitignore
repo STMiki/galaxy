@@ -1,0 +1,20 @@
+# vi swp file
+*.swp
+
+# vscode config
+.vscode
+
+# compiled file
+*.o
+
+# Test file
+test.cpp
+test.c
+test
+a.out
+
+# this file is for the editor config file
+.editorconfig
+
+# Output file
+galaxy
