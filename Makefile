@@ -40,6 +40,7 @@ all: buildrepo compiling build
 	@echo "$(COLORINFO)Done !$(COLORRESET)"
 
 $(APPNAME): $(OBJ)
+	@echo "$(COLORGOOD)Linking all file...$(COLORRESET)"
 	@$(CC) $(OBJ) $(CFLAGS) $(LDFLAGS) -o $@
 
 $(OBJDIR)/%.o: %.cpp
