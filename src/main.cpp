@@ -13,8 +13,9 @@
 void update(sf::RenderWindow &window, Galaxy galaxy)
 {
     window.clear();
-    uint32_t _x = sf::Mouse::getPosition(window).x - (sf::Mouse::getPosition(window).x % 16);
-    uint32_t _y = sf::Mouse::getPosition(window).y - (sf::Mouse::getPosition(window).y % 16);
+    sf::Vector2i mouse_pos = sf::Mouse::getPosition(window);
+    uint32_t _x = mouse_pos.x;
+    uint32_t _y = mouse_pos.y;
 
     for (uint32_t y = 0; y <= window.getSize().y + 32; y += 16) {
         for (uint32_t x = 0; x <= window.getSize().x + 32; x += 16) {
@@ -31,8 +32,8 @@ void update(sf::RenderWindow &window, Galaxy galaxy)
             window.draw(pixel);
 
             // outline
-            if (x - (galaxy.getOffset().x) - 16 != _x ||
-                y - (galaxy.getOffset().y) - 16 != _y)
+            if (((x - 16)) != _x - (_x % 16) ||
+                ((y - 16)) != _y - (_y % 16))
                 continue;
 
             sf::CircleShape outline;
